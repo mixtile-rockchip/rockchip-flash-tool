@@ -25,6 +25,13 @@ This project hides that complexity and gives users one clear workflow: choose fi
 - Latest release: [Download Here](https://github.com/evtest-hash/rockchip-flash-tool/releases/latest)
 - All releases: [Release History](https://github.com/evtest-hash/rockchip-flash-tool/releases)
 
+## Installation Guides
+
+- macOS unknown developer prompt and Linux FUSE2 dependency guide:
+  [English Guide](README.en.md#installation-notes)
+- macOS 身份未知开发者与 Linux FUSE2 依赖操作指南:
+  [简体中文指南](README.zh-CN.md#安装说明)
+
 ## Read In Your Language
 
 - English documentation: [README.en.md](README.en.md)

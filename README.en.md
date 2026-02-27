@@ -13,6 +13,69 @@ Rockchip Flash Tool is a cross-platform desktop application that turns Rockchip 
 - Latest release: [Download Here](https://github.com/evtest-hash/rockchip-flash-tool/releases/latest)
 - All releases: [Release History](https://github.com/evtest-hash/rockchip-flash-tool/releases)
 
+## Installation Notes
+
+### macOS: "Developer Cannot Be Verified"
+
+If macOS blocks the app after install, use one of these methods:
+
+1. In Finder, right-click the app and choose **Open**.
+2. Click **Open** again in the confirmation dialog.
+
+If it is still blocked:
+
+1. Open **System Settings** -> **Privacy & Security**.
+2. In the Security section, find the blocked app message.
+3. Click **Open Anyway**, then confirm.
+
+If Gatekeeper quarantine metadata still blocks launch, run:
+
+```bash
+xattr -dr com.apple.quarantine "/Applications/Rockchip Flash Tool.app"
+```
+
+### Linux: AppImage Requires FUSE2
+
+AppImage may show a FUSE-related error on first launch. Install FUSE2 runtime:
+
+- Ubuntu/Debian (22.04 and earlier):
+
+```bash
+sudo apt update
+sudo apt install libfuse2
+```
+
+- Ubuntu 24.04+:
+
+```bash
+sudo apt update
+sudo apt install libfuse2t64
+```
+
+- Fedora:
+
+```bash
+sudo dnf install fuse-libs
+```
+
+- Arch Linux:
+
+```bash
+sudo pacman -S fuse2
+```
+
+- openSUSE:
+
+```bash
+sudo zypper install libfuse2
+```
+
+If you cannot install FUSE2 immediately, run in extract mode:
+
+```bash
+APPIMAGE_EXTRACT_AND_RUN=1 ./Rockchip-Flash-Tool-linux-x86_64.AppImage
+```
+
 ## Why This Tool Exists
 
 Rockchip flashing is often difficult for end users because many conditions change the required process.
