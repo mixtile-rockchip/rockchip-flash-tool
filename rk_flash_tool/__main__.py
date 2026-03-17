@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
+from PySide6.QtCore import QTimer
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
@@ -38,6 +40,12 @@ def main() -> None:
     if icon_path:
         w.setWindowIcon(QIcon(str(icon_path)))
     w.show()
+    auto_exit_ms = os.getenv("RK_FLASH_TOOL_AUTO_EXIT_MS", "").strip()
+    if auto_exit_ms:
+        try:
+            QTimer.singleShot(max(0, int(auto_exit_ms)), app.quit)
+        except ValueError:
+            pass
     sys.exit(app.exec())
 
 

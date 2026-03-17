@@ -103,11 +103,21 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Cache linuxdeploy
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: linuxdeploy-${{ runner.os }}-x86_64
+
       - name: Install Linux runtime deps for bundling
         run: |
           sudo apt-get update
           sudo apt-get install -y \
+            libegl1 \
             libfuse2 \
+            libgbm1 \
+            libopengl0 \
+            patchelf \
             libxkbcommon-x11-0 \
             libxcb-cursor0 \
             libxcb-xkb1 \
